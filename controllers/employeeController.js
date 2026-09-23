@@ -1,0 +1,170 @@
+import * as db from "../data/database.js";
+
+export const getAllEmployees = (req, res) => {
+  res.status(200).json(db.getAllEmployees());
+};
+
+export const getEmployeeById = (req, res) => {
+  const id = +req.params.id;
+  const employee = db.getEmployeeById(id);
+
+  if (!employee) {
+    return res.status(404).json({ message: `Employee not found.` });
+  }
+
+  res.status(200).json(employee);
+};
+
+export const saveEmployee = (req, res) => {
+  const {
+    company,
+    lastname,
+    firstname,
+    position,
+    salary,
+    department,
+    gender,
+    holiday_days,
+    birth_date,
+  } = req.body;
+
+  if (
+    !company ||
+    !lastname ||
+    !firstname ||
+    !position ||
+    !salary ||
+    !department ||
+    !gender ||
+    !holiday_days ||
+    !birth_date
+  ) {
+    return res.status(400).json({ message: "Every field is required." });
+  }
+
+  if (salary <= 0) {
+    return res.status(400).json({ message: "Salary must be greater than 0." });
+  }
+
+  if (holiday_days < 0) {
+    return res
+      .status(400)
+      .json({ message: "Holiday days cannot be negative." });
+  }
+
+  if (isNaN(Date.parse(birth_date))) {
+    return res
+      .status(400)
+      .json({ message: "Birth date must be a valid date." });
+  }
+
+  const saved = db.saveEmployee(
+    company,
+    lastname,
+    firstname,
+    position,
+    salary,
+    department,
+    gender,
+    holiday_days,
+    birth_date,
+  );
+  res.status(201).json(db.getEmployeeById(saved.lastInsertRowid));
+};
+
+export const deleteEmployee = (req, res) => {
+  const id = +req.params.id;
+  if (!db.getEmployeeById(id)) {
+    return res.status(404).json({ message: "Employee not found." });
+  }
+  db.deleteEmployee(id);
+  res.status(204).json({ message: "Delete successful." });
+};
+
+export const updateEmployee = (req, res) => {
+  const {
+    company,
+    lastname,
+    firstname,
+    position,
+    salary,
+    department,
+    gender,
+    holiday_days,
+    birth_date,
+  } = req.body;
+
+  if (
+    !company ||
+    !lastname ||
+    !firstname ||
+    !position ||
+    !salary ||
+    !department ||
+    !gender ||
+    !holiday_days ||
+    !birth_date
+  ) {
+    return res.status(400).json({ message: "Every field is required." });
+  }
+
+  if (salary <= 0) {
+    return res.status(400).json({ message: "Salary must be greater than 0." });
+  }
+
+  if (holiday_days < 0) {
+    return res
+      .status(400)
+      .json({ message: "Holiday days cannot be negative." });
+  }
+
+  if (isNaN(Date.parse(birth_date))) {
+    return res
+      .status(400)
+      .json({ message: "Birth date must be a valid date." });
+  }
+
+  const id = +req.params.id;
+  if (!db.getEmployeeById(id)) {
+    return res.status(404).json({ message: "Employee not found." });
+  }
+
+  db.updateEmployee(
+    id,
+    company,
+    lastname,
+    firstname,
+    position,
+    salary,
+    department,
+    gender,
+    holiday_days,
+    birth_date,
+  );
+  res.status(201).json(db.getEmployeeById(id));
+};
+
+export const getEmployeesByCompany = (req, res) => {
+  const company = req.params.company;
+  const employees = db.getEmployeesByCompany(company);
+
+  if (employees.length == 0) {
+    return res.status(404).json({ message: "Employees not found." });
+  }
+  res.status(200).json(employees);
+};
+
+export const getEmployeesByDepartment = (req, res) => {
+  const department = req.params.department;
+
+  const departments = db.getEmployeesByDepartment(department);
+  console.log(departments)
+  if (departments.length == 0) {
+    return res.status(404).json({ message: "Departments not found." });
+  }
+  res.status(200).json(departments);
+};
+
+export const getStatistics = (req, res) => {
+  res.status(200).json(db.getStatistics())
+}

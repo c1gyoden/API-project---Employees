@@ -1,0 +1,51 @@
+id,company,lastname,firstname,position,salary,department,gender,holiday_days,birth_date
+1,TechCorp,Kovács,Bence,Software Engineer,720000,IT,Male,18,1992-03-14
+2,TechCorp,Szabó,Anna,Project Manager,850000,Management,Female,22,1988-11-02
+3,TechCorp,Tóth,Gergő,DevOps Engineer,690000,IT,Male,15,1994-07-21
+4,TechCorp,Varga,Lili,UI/UX Designer,580000,Design,Female,20,1996-01-09
+5,TechCorp,Nagy,Patrik,Backend Developer,710000,IT,Male,17,1993-05-30
+6,TechCorp,Kiss,Dóra,HR Specialist,520000,HR,Female,25,1989-09-12
+7,TechCorp,Molnár,Ádám,QA Engineer,560000,IT,Male,19,1995-12-03
+8,TechCorp,Farkas,Réka,Frontend Developer,640000,IT,Female,16,1997-04-18
+9,TechCorp,Balogh,Márk,System Administrator,600000,IT,Male,14,1991-02-27
+10,TechCorp,Papp,Eszter,Business Analyst,780000,Business,Female,23,1987-08-15
+11,FinSolutions,Horváth,Tamás,Financial Analyst,830000,Finance,Male,21,1986-10-05
+12,FinSolutions,Lakatos,Vivien,Accountant,540000,Finance,Female,24,1990-06-11
+13,FinSolutions,Boros,Zoltán,Risk Manager,910000,Finance,Male,20,1985-12-29
+14,FinSolutions,Gáspár,Kitti,Payroll Specialist,500000,HR,Female,26,1992-03-08
+15,FinSolutions,Sipos,Norbert,Data Analyst,760000,Data,Male,18,1994-09-17
+16,FinSolutions,Barta,Jázmin,Marketing Coordinator,480000,Marketing,Female,22,1996-07-04
+17,FinSolutions,Jakab,Levente,Sales Manager,870000,Sales,Male,19,1988-01-23
+18,FinSolutions,Oláh,Zsófia,Customer Support,420000,Support,Female,27,1997-11-30
+19,FinSolutions,Simon,Richárd,IT Security Specialist,950000,IT,Male,16,1989-05-14
+20,FinSolutions,Bognár,Laura,Legal Advisor,990000,Legal,Female,20,1986-04-02
+21,MediHealth,Fekete,Gábor,Nurse,450000,Healthcare,Male,28,1993-10-19
+22,MediHealth,Fehér,Zsanett,Doctor,1200000,Healthcare,Female,18,1984-02-12
+23,MediHealth,Gulyás,Kristóf,Pharmacist,680000,Pharmacy,Male,22,1991-06-07
+24,MediHealth,Kelemen,Luca,Lab Technician,520000,Laboratory,Female,25,1995-03-26
+25,MediHealth,Györfi,Máté,Paramedic,480000,Healthcare,Male,26,1994-12-01
+26,MediHealth,Sárközi,Emma,Receptionist,380000,Admin,Female,29,1998-09-09
+27,MediHealth,Török,Áron,Surgeon,1500000,Healthcare,Male,15,1983-07-13
+28,MediHealth,Major,Dorina,Therapist,620000,Healthcare,Female,23,1990-11-25
+29,MediHealth,Vincze,Bálint,Radiologist,980000,Healthcare,Male,17,1987-01-31
+30,MediHealth,Bíró,Hanna,Nutritionist,560000,Healthcare,Female,24,1996-05-20
+31,RetailPro,Szűcs,Dániel,Store Manager,600000,Retail,Male,20,1989-03-03
+32,RetailPro,Mezei,Flóra,Cashier,350000,Retail,Female,28,1998-12-14
+33,RetailPro,Kádár,István,Warehouse Worker,400000,Logistics,Male,26,1993-08-22
+34,RetailPro,Bálint,Nóra,Sales Associate,370000,Retail,Female,27,1997-02-05
+35,RetailPro,Szőke,Ákos,Logistics Coordinator,520000,Logistics,Male,18,1992-04-16
+36,RetailPro,Pintér,Judit,Inventory Specialist,480000,Logistics,Female,23,1994-10-28
+37,RetailPro,Kerekes,Miklós,Driver,430000,Transport,Male,25,1991-01-19
+38,RetailPro,Bessenyei,Viktória,Customer Service,390000,Support,Female,26,1995-06-02
+39,RetailPro,Somogyi,Gábor,Shift Supervisor,550000,Retail,Male,19,1988-09-07
+40,RetailPro,Kalmár,Petra,Merchandiser,360000,Retail,Female,28,1999-03-11
+41,BuildWorks,Illés,Zoltán,Architect,900000,Engineering,Male,17,1985-05-06
+42,BuildWorks,Sándor,Léna,Civil Engineer,880000,Engineering,Female,18,1987-07-29
+43,BuildWorks,Csontos,Ábel,Construction Worker,420000,Construction,Male,26,1992-02-17
+44,BuildWorks,Benkő,Lilla,Safety Inspector,610000,Construction,Female,22,1993-11-04
+45,BuildWorks,Orbán,Kristóf,Project Engineer,950000,Engineering,Male,16,1986-09-15
+46,BuildWorks,Süle,Fanni,Office Manager,500000,Admin,Female,24,1994-01-08
+47,BuildWorks,Kovácsné,Erika,HR Manager,780000,HR,Female,23,1988-06-30
+48,BuildWorks,Takács,Gergely,Electrician,460000,Construction,Male,25,1991-12-22
+49,BuildWorks,Boros,Zsuzsa,Procurement Specialist,640000,Logistics,Female,21,1990-03-17
+50,BuildWorks,Vass,Áron,Mechanical Engineer,920000,Engineering,Male,19,1987-10-10
