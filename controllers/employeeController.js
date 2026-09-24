@@ -16,7 +16,7 @@ export const getEmployeeById = (req, res) => {
 };
 
 export const saveEmployee = (req, res) => {
-  const {
+  let {
     company,
     lastname,
     firstname,
@@ -42,6 +42,14 @@ export const saveEmployee = (req, res) => {
     return res.status(400).json({ message: "Every field is required." });
   }
 
+  company = company.trim();
+  lastname = lastname.trim();
+  firstname = firstname.trim();
+  position = position.trim();
+  department = department.trim();
+  gender = gender.trim();
+  birth_date = birth_date.trim();
+
   if (salary <= 0) {
     return res.status(400).json({ message: "Salary must be greater than 0." });
   }
@@ -52,7 +60,22 @@ export const saveEmployee = (req, res) => {
       .json({ message: "Holiday days cannot be negative." });
   }
 
-  if (isNaN(Date.parse(birth_date))) {
+  const specialChars = /[^A-Za-z0-9]/;
+  if (specialChars.test(firstname) || specialChars.test(lastname)) {
+    return res.status(400).json({ message: "Invalid name." });
+  }
+
+  if (holiday_days < 0) {
+    return res
+      .status(400)
+      .json({ message: "Holiday days cannot be negative." });
+  }
+
+  if (!["male", "female"].includes(gender.toLowerCase())) {
+    return res.status(400).json({ message: "Invalid gender" });
+  }
+
+  if (isNaN(Date.parse(birth_date)) || Date.now() < Date.parse(birth_date)) {
     return res
       .status(400)
       .json({ message: "Birth date must be a valid date." });
@@ -82,7 +105,7 @@ export const deleteEmployee = (req, res) => {
 };
 
 export const updateEmployee = (req, res) => {
-  const {
+  let {
     company,
     lastname,
     firstname,
@@ -108,6 +131,14 @@ export const updateEmployee = (req, res) => {
     return res.status(400).json({ message: "Every field is required." });
   }
 
+  company = company.trim();
+  lastname = lastname.trim();
+  firstname = firstname.trim();
+  position = position.trim();
+  department = department.trim();
+  gender = gender.trim();
+  birth_date = birth_date.trim();
+
   if (salary <= 0) {
     return res.status(400).json({ message: "Salary must be greater than 0." });
   }
@@ -118,7 +149,22 @@ export const updateEmployee = (req, res) => {
       .json({ message: "Holiday days cannot be negative." });
   }
 
-  if (isNaN(Date.parse(birth_date))) {
+  const specialChars = /[^A-Za-z0-9]/;
+  if (specialChars.test(firstname) || specialChars.test(lastname)) {
+    return res.status(400).json({ message: "Invalid name." });
+  }
+
+  if (holiday_days < 0) {
+    return res
+      .status(400)
+      .json({ message: "Holiday days cannot be negative." });
+  }
+
+  if (!["male", "female"].includes(gender.toLowerCase())) {
+    return res.status(400).json({ message: "Invalid gender" });
+  }
+
+  if (isNaN(Date.parse(birth_date)) || Date.now() < Date.parse(birth_date)) {
     return res
       .status(400)
       .json({ message: "Birth date must be a valid date." });
@@ -158,7 +204,7 @@ export const getEmployeesByDepartment = (req, res) => {
   const department = req.params.department;
 
   const departments = db.getEmployeesByDepartment(department);
-  console.log(departments)
+  console.log(departments);
   if (departments.length == 0) {
     return res.status(404).json({ message: "Departments not found." });
   }
@@ -166,5 +212,5 @@ export const getEmployeesByDepartment = (req, res) => {
 };
 
 export const getStatistics = (req, res) => {
-  res.status(200).json(db.getStatistics())
-}
+  res.status(200).json(db.getStatistics());
+};
